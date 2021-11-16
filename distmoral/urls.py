@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.main.views import IndexLogin, log_user_out, IndexLoginError, PedidoVentaList
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name="admin"),
+    path('', IndexLogin.as_view(), name="indexLogin"),
+    path('indexLoginError/',IndexLoginError.as_view(), name='indexLoginError'),
+    path('logout/', log_user_out, name="logout"),
+    path('listarPedidosVenta/', PedidoVentaList.as_view(), name='listarPedidosVenta'),
 ]
