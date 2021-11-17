@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'distmoral.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd82uiuluj8lntj',
+        'USER': 'yoxkbhqwzvlvtw',
+        'PASSWORD': 'ff1473bb09ea2f7fb9bce0b6767c8b7dfa0347b1a739ad8fb58480c536472c35',
+        'HOST': 'ec2-3-229-166-245.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

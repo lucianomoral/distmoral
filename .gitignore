@@ -1,6 +1,6 @@
 ### Django ###
 db.sqlite3
-ExpeNZes/__pycache__
+distmoral/__pycache__
 *.log
 *.pot
 *.pyc
