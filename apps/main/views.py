@@ -23,6 +23,7 @@ from .models import Cliente, ListaPrecio, ListaPrecioLinea, Producto, GrupoProdu
 #from .forms import MovimientoFinancieroForm, CuentaForm, CategoriaMovimientoFinancieroForm
 
 #Otros
+import json
 #from decimal import Decimal as D
 
 # Create your views here.
@@ -112,7 +113,16 @@ class ABM_General(ListView):
         return context
 
 # APIS - Nueva version
+
+def build_json_response(qs):
     
+    json_data_response = []
+
+    for elem in qs:
+        json_data_response.append(elem)
+
+    return json_data_response
+
 class PruebaDeAPIs(TemplateView):
 
     template_name = 'PruebaDeAPIs.html'
@@ -131,8 +141,4 @@ class ClientesAPI(View):
 
     def get(self, request, *args, **kwargs):
         
-        qs = Cliente.objects.all()
-
-        data = serializers.serialize('json', qs)
-
-        return JsonResponse(data, safe=False)
+        return JsonResponse(build_json_response(Cliente.objects.all().values()), safe=False)

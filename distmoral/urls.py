@@ -26,5 +26,5 @@ urlpatterns = [
     path('listar/<modelo>/', ABM_General.as_view(), name='abm_general'),
     path('PruebaDeAPIs', PruebaDeAPIs.as_view(), name='PruebaDeAPIs'),
     path('APIPrueba', APIPrueba.as_view(), name='APIPrueba'),
-    path('API/Clientes', ClientesAPI.as_view(), name='ClientesAPI'),
+    path('API/clientes', ClientesAPI.as_view(), name='ClientesAPI'),
 ]
