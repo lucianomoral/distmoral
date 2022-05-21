@@ -130,8 +130,9 @@ class APIPrueba(View):
 class ClientesAPI(View):
 
     def get(self, request, *args, **kwargs):
+        
+        qs = Cliente.objects.all()
 
-        #Si se hace una request tipo ajax, entonces se devuelve el json con los registros de la pagina solicitada
-        #if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        data = serializers.serialize('json', qs)
 
-        return JsonResponse({"data": "LARECONCHADETUMADREFORRA"}, status = 200)
+        return JsonResponse(data, safe=False)
