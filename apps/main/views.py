@@ -134,4 +134,4 @@ class ClientesAPI(View):
         #Si se hace una request tipo ajax, entonces se devuelve el json con los registros de la pagina solicitada
         #if request.headers.get('x-requested-with') == 'XMLHttpRequest':
 
-        return JsonResponse({"data": "LARECONCHADETUMADRE"}, status = 200)
+        return JsonResponse({"data": "LARECONCHADETUMADREFORRA"}, status = 200)
