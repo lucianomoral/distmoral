@@ -37,25 +37,25 @@
                         Configuraciones
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">
+                        <a class="dropdown-item" href="{% url 'abm_general' modelo='Cliente' %} ">
                             <span class="fa fa-users" aria-hidden="true"></span>
                             Clientes
                         </a>
                             <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="">
+                        <a class="dropdown-item" href="{% url 'abm_general' modelo='Producto' %}">
                             <span class="fa fa-shopping-cart" aria-hidden="true"></span>
                             Productos
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'abm_general' modelo='FamiliaProducto' %}">
                             <span class="fa fa-bars" aria-hidden="true"></span>
                             Familias de productos
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'abm_general' modelo='GrupoProducto' %}">
                             <span class="fa fa-sitemap" aria-hidden="true"></span>
                             Grupos de productos
                         </a>
                             <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{% url 'abm_general' modelo='ListaPrecios' %}">
                             <span class="fa fa-usd" aria-hidden="true"></span>
                             Listas de precios
                         </a>

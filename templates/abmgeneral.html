@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block titulo %} 
+
+{{ titulo_pagina }}
+
+{% endblock titulo %}
+
+{% block cuerpo %}
+
+<script>
+
+    $(document).ready(function()
+        {
+
+        object_list_json = JSON.parse(object_list.value)
+
+        //Cargamos las cabeceras y ponemos la primera letra mayuscula
+
+        Object.keys(object_list_json[0].fields).forEach( key => {
+
+            $("thead tr").html( $("thead tr").html() + "<th>" + key.charAt(0).toUpperCase() + key.slice(1) + "</th>")
+
+        });
+
+        $("thead tr").html( $("thead tr").html() + "<th> Editar </th><th> Eliminar </th>")
+
+        //Cargamos las lineas
+
+        lineas = [];
+
+        i = 0;
+
+        object_list_json.forEach( obj => {
+
+            lineas[i] = ["<tr><td>" + obj.pk + "</td>"];
+            
+            Object.values(obj.fields).forEach(element => {
+
+                lineas[i] = lineas[i] + "<td>" + element + "</td>";
+
+            });
+
+            lineas[i] = lineas[i] + "<td><a class='btn btn-primary' href=''><span class='fa fa-edit' aria-hidden='true'></span></a></td><td><a class='btn btn-danger' href=''><span class='fa fa-trash' aria-hidden='true'></span></a></td></tr>";
+
+            i = i+1;
+
+        });
+
+        lineas.forEach( obj => {
+        
+            $("tbody").html( $("tbody").html() + obj);
+                    
+        });
+
+        });
+    
+</script>
+
+<input type="hidden" value="{{ object_list }}" id="object_list">
+
+<p>
+    <h3> {{ titulo_pagina }} </h3>
+    <a class="btn btn-dark" href=""> 
+        Crear
+        <span class="fa fa-plus" aria-hidden="true"></span>
+    </a>
+</p>
+
+<table class="table table-bordered table-sm table-hover">
+    <thead class="table-dark">
+        <tr>
+           <th>Id</tr>
+        </tr>
+    </thead>
+    
+    <tbody>
+        
+    </tbody>
+</table>
+
+<a class="btn btn-light" href="{% url 'listarPedidosVenta' %}"> Volver </a>
+
+{% endblock cuerpo %}

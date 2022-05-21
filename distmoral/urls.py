@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.main.views import IndexLogin, log_user_out, IndexLoginError, PedidoVentaList
+from apps.main.views import IndexLogin, log_user_out, IndexLoginError, PedidoVentaList, ABM_General, PruebaDeAPIs, APIPrueba, ClientesAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
@@ -23,4 +23,8 @@ urlpatterns = [
     path('indexLoginError/',IndexLoginError.as_view(), name='indexLoginError'),
     path('logout/', log_user_out, name="logout"),
     path('listarPedidosVenta/', PedidoVentaList.as_view(), name='listarPedidosVenta'),
+    path('listar/<modelo>/', ABM_General.as_view(), name='abm_general'),
+    path('PruebaDeAPIs', PruebaDeAPIs.as_view(), name='PruebaDeAPIs'),
+    path('APIPrueba', APIPrueba.as_view(), name='APIPrueba'),
+    path('DevolverCliente', ClientesAPI.as_view(), name='ClientesAPI'),
 ]
